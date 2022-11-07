@@ -22,12 +22,18 @@ namespace EmployeeWageProblems
         {
             int dailyEmpWage = 0, empHrs = 0;
             int empCheck = random.Next(0, 3);
-            if (empCheck == IS_FULL_TIME)
-                empHrs = FULL_DAY_HR;
-            else if (empCheck == IS_HALF_TIME)
-                empHrs = HALF_DAY_HR;
-            else
-                empHrs = 0;
+            switch (empCheck)
+            {
+                case IS_FULL_TIME:
+                    empHrs = FULL_DAY_HR;
+                    break;
+                case IS_HALF_TIME:
+                    empHrs = HALF_DAY_HR;
+                    break;
+                default:
+                    empHrs = 0;
+                    break;
+            }
             dailyEmpWage = WAGE_PER_HR * empHrs;
             Console.WriteLine("Daily emp wage" + dailyEmpWage);
         }
